@@ -1,7 +1,5 @@
-import NextLink from 'next/link'
 import toast from 'react-hot-toast'
 import { useTheme } from 'next-themes'
-import { GiCobweb } from 'react-icons/gi'
 import { FiTwitter, FiGithub, FiMail } from 'react-icons/fi'
 import { ThemeSwitcher } from './ThemeSwitcher'
 
