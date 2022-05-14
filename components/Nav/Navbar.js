@@ -23,7 +23,7 @@ export const Navbar = () => {
   }
 
   return (
-    <nav className="flex items-center justify-between w-full max-w-4xl px-8 mx-auto my-20 z-99">
+    <nav className="flex items-center justify-between w-full max-w-4xl px-4 mx-auto my-20 z-99">
       <div className="flex text-xl">
         <a
           href={TWITTER_URL}
