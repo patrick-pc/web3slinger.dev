@@ -29,38 +29,38 @@ const Home = () => {
                 <Image src="/img/smol-spider.png" alt="Smol Spider-Man" width={500} height={500} />
               </div>
               <div className="grid w-full grid-cols-2 gap-2 mb-6 text-sm font-medium">
-                <div className="px-3 py-6 border border-gray-300 bg-gray-50 rounded-xl dark:bg-black dark:border-gray-800">
+                <div className="px-3 py-6 transition border border-gray-300 bg-gray-50 rounded-xl dark:bg-black dark:border-gray-800">
                   Solidity
                 </div>
-                <div className="px-3 py-6 border border-gray-300 bg-gray-50 rounded-xl dark:bg-black dark:border-gray-800">
+                <div className="px-3 py-6 transition border border-gray-300 bg-gray-50 rounded-xl dark:bg-black dark:border-gray-800">
                   JavaScript/TypeScript
                 </div>
-                <div className="px-3 py-6 border border-gray-300 bg-gray-50 rounded-xl dark:bg-black dark:border-gray-800">
+                <div className="px-3 py-6 transition border border-gray-300 bg-gray-50 rounded-xl dark:bg-black dark:border-gray-800">
                   React/Next.js
                 </div>
-                <div className="px-3 py-6 border border-gray-300 bg-gray-50 rounded-xl dark:bg-black dark:border-gray-800">
+                <div className="px-3 py-6 transition border border-gray-300 bg-gray-50 rounded-xl dark:bg-black dark:border-gray-800">
                   Tailwind CSS
                 </div>
-                <div className="px-3 py-6 border border-gray-300 bg-gray-50 rounded-xl dark:bg-black dark:border-gray-800">
+                <div className="px-3 py-6 transition border border-gray-300 bg-gray-50 rounded-xl dark:bg-black dark:border-gray-800">
                   Node.js
                 </div>
-                <div className="px-3 py-6 border border-gray-300 bg-gray-50 rounded-xl dark:bg-black dark:border-gray-800">
+                <div className="px-3 py-6 transition border border-gray-300 bg-gray-50 rounded-xl dark:bg-black dark:border-gray-800">
                   Python
                 </div>
               </div>
             </div>
             <div className="relative flex flex-col items-start flex-shrink w-full min-w-0 ml-0 lg:ml-6">
               <div className="flex flex-col mb-6">
-                <h1 className="mb-2 text-4xl font-bold">Patrick Torralba</h1>
-                <p className="text-2xl font-medium text-gray-500">Buildooor.</p>
+                <h1 className="mb-2 text-4xl font-bold transition">Patrick Torralba</h1>
+                <p className="text-2xl font-medium text-gray-500 transition">Buildooor.</p>
               </div>
               <div className="flex flex-col w-full mb-6">
                 <ul className="flex gap-2 mb-6">
                   <li
                     className={
                       selected === 'projects'
-                        ? 'px-4 py-1 text-sm font-semibold text-white bg-gray-700 transition-all rounded-full cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-gray-300 hover:text-gray-500 dark:text-gray-800'
-                        : 'px-4 py-1 text-sm font-semibold text-gray-500 transition-all rounded-full cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-black dark:text-gray-300'
+                        ? 'px-4 py-1 text-sm font-semibold text-white bg-gray-700 transition rounded-full cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-gray-300 hover:text-gray-500 dark:text-gray-800'
+                        : 'px-4 py-1 text-sm font-semibold text-gray-500 transition rounded-full cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-black dark:text-gray-300'
                     }
                     onClick={() => setSelected('projects')}
                   >
@@ -69,8 +69,8 @@ const Home = () => {
                   <li
                     className={
                       selected === 'info'
-                        ? 'px-4 py-1 text-sm font-semibold text-white bg-gray-700 transition-all rounded-full cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-gray-300 hover:text-gray-500 dark:text-gray-800'
-                        : 'px-4 py-1 text-sm font-semibold text-gray-500 transition-all rounded-full cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-black dark:text-gray-300'
+                        ? 'px-4 py-1 text-sm font-semibold text-white bg-gray-700 transition rounded-full cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-gray-300 hover:text-gray-500 dark:text-gray-800'
+                        : 'px-4 py-1 text-sm font-semibold text-gray-500 transition rounded-full cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-black dark:text-gray-300'
                     }
                     onClick={() => setSelected('info')}
                   >
@@ -167,7 +167,7 @@ const Home = () => {
                 ) : null}
                 {selected === 'info' ? (
                   <div className="text-sm">
-                    <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center justify-between mb-3 transition">
                       <div className="text-gray-500">Contract Address</div>
                       <a
                         className="flex items-center gap-2 text-purple-800"
@@ -179,15 +179,15 @@ const Home = () => {
                         <FiExternalLink />
                       </a>
                     </div>
-                    <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center justify-between mb-3 transition">
                       <div className="text-gray-500">Token ID</div>
                       <div className="font-medium">1</div>
                     </div>
-                    <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center justify-between mb-3 transition">
                       <div className="text-gray-500">Token Standard</div>
                       <div className="font-medium">ERC721</div>
                     </div>
-                    <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center justify-between mb-3 transition">
                       <div className="text-gray-500">Blockchain</div>
                       <div className="font-medium">Ethereum</div>
                     </div>
