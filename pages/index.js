@@ -6,6 +6,7 @@ import FadeIn from 'react-fade-in'
 import Router from 'next/router'
 import Image from 'next/image'
 
+import { GenericMeta } from '../components/GenericMeta'
 import { Navbar } from '../components/Nav/Navbar'
 
 const Home = () => {
@@ -20,6 +21,10 @@ const Home = () => {
 
   return (
     <>
+      <GenericMeta
+        title="web3slinger.dev"
+        description="Buildooor."
+      />
       <FadeIn>
         <Navbar />
         <div className="flex flex-col justify-between flex-shrink w-full max-w-full min-w-0 height">
