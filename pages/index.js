@@ -175,6 +175,34 @@ const Home = () => {
                     </a>
                   </div>
                 ) : null}
+                {selected === 'info' ? (
+                  <div className="text-sm">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="text-gray-500">Contract Address</div>
+                      <a
+                        className="flex items-center gap-2 text-purple-800"
+                        href="https://rinkeby.etherscan.io/address/0x4f4f87E9AD124Da45b34863067DDb1EDd8eCF48c"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <div className="font-medium">0x4f4f...F48c</div>
+                        <FiExternalLink />
+                      </a>
+                    </div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="text-gray-500">Token ID</div>
+                      <div className="font-medium">1</div>
+                    </div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="text-gray-500">Token Standard</div>
+                      <div className="font-medium">ERC721</div>
+                    </div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="text-gray-500">Blockchain</div>
+                      <div className="font-medium">Ethereum</div>
+                    </div>
+                  </div>
+                ) : null}
               </div>
             </div>
           </div>
