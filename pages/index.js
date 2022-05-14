@@ -76,22 +76,12 @@ const Home = () => {
                   >
                     Info
                   </li>
-                  <li
-                    className={
-                      selected === 'about'
-                        ? 'px-4 py-1 text-sm font-semibold text-white bg-gray-700 transition-all rounded-full cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-gray-300 hover:text-gray-500 dark:text-gray-800'
-                        : 'px-4 py-1 text-sm font-semibold text-gray-500 transition-all rounded-full cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-black dark:text-gray-300'
-                    }
-                    onClick={() => setSelected('about')}
-                  >
-                    Activity
-                  </li>
                 </ul>
                 {selected === 'projects' ? (
                   <div className="grid gap-6">
                     <a
                       className="flex flex-col sm:flex-row text-center sm:text-left px-8 sm:px-6 py-6 rounded-md border border-gray-300 dark:border-gray-800 max-w-2xl cursor-pointer focus:outline-none transition duration-300 ease-in-out transform hover:scale-102.5"
-                      href="#"
+                      href="https://web3slinger-metaverse-slayer.vercel.app/"
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -112,7 +102,7 @@ const Home = () => {
                     </a>
                     <a
                       className="flex flex-col sm:flex-row text-center sm:text-left px-8 sm:px-6 py-6 rounded-md border border-gray-300 dark:border-gray-800 max-w-2xl cursor-pointer focus:outline-none transition duration-300 ease-in-out transform hover:scale-102.5"
-                      href="#"
+                      href="https://web3slinger-epic-nfts.vercel.app/"
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -133,7 +123,7 @@ const Home = () => {
                     </a>
                     <a
                       className="flex flex-col sm:flex-row text-center sm:text-left px-8 sm:px-6 py-6 rounded-md border border-gray-300 dark:border-gray-800 max-w-2xl cursor-pointer focus:outline-none transition duration-300 ease-in-out transform hover:scale-102.5"
-                      href="#"
+                      href="https://daedalus-dao.vercel.app/"
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -154,7 +144,7 @@ const Home = () => {
                     </a>
                     <a
                       className="flex flex-col sm:flex-row text-center sm:text-left px-8 sm:px-6 py-6 rounded-md border border-gray-300 dark:border-gray-800 max-w-2xl cursor-pointer focus:outline-none transition duration-300 ease-in-out transform hover:scale-102.5"
-                      href="#"
+                      href="https://github.com/web3slinger/web3slinger.dev"
                       target="_blank"
                       rel="noreferrer"
                     >
