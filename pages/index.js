@@ -8,10 +8,20 @@ import Image from 'next/image'
 
 import { GenericMeta } from '../components/GenericMeta'
 import { Navbar } from '../components/Nav/Navbar'
+import { GitHubActivity } from './data/github-activity'
 
 const Home = () => {
   const [mintCount] = useMintCountContext()
   const [selected, setSelected] = useState('projects')
+
+  const getFeed = () => {
+    console.log('getFeed')
+    GitHubActivity.feed({ username: 'web3slinger', limit: 10, selector: '#gh-feed' })
+  }
+
+  const test = () => {
+    console.log('test')
+  }
 
   useEffect(() => {
     if (mintCount === 0) {
@@ -21,10 +31,7 @@ const Home = () => {
 
   return (
     <>
-      <GenericMeta
-        title="web3slinger.dev"
-        description="Buildooor."
-      />
+      <GenericMeta title="web3slinger.dev" description="Buildooor." />
       <FadeIn>
         <Navbar />
         <div className="flex flex-col justify-between flex-shrink w-full max-w-full min-w-0 height">
@@ -70,6 +77,16 @@ const Home = () => {
                     onClick={() => setSelected('projects')}
                   >
                     Projects
+                  </li>
+                  <li
+                    className={
+                      selected === 'activity'
+                        ? 'px-4 py-1 text-sm font-semibold text-white bg-gray-700 transition rounded-full cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-gray-300 hover:text-gray-500 dark:text-gray-800'
+                        : 'px-4 py-1 text-sm font-semibold text-gray-500 transition rounded-full cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-black dark:text-gray-300'
+                    }
+                    onClick={() => (setSelected('activity'), getFeed())}
+                  >
+                    Activity
                   </li>
                   <li
                     className={
@@ -170,6 +187,9 @@ const Home = () => {
                     </a>
                   </div>
                 ) : null}
+
+                <div id="gh-feed" className={selected !== 'activity' ? 'hidden' : 'relative'}></div>
+
                 {selected === 'info' ? (
                   <div className="text-sm">
                     <div className="flex items-center justify-between mb-3 transition">
