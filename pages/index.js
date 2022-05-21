@@ -38,25 +38,25 @@ const Home = () => {
           <div className="flex flex-col px-4 mx-auto mb-20 overflow-hidden lg:flex-row">
             <div className="flex-shrink-0 lg:w-96">
               <div className="mb-6">
-                <Image src="/img/smol-spider.png" alt="Smol Spider-Man" width={500} height={500} />
+                <Image src="/img/smol-spider.png" alt="Smol Spider-Man" width={600} height={600} />
               </div>
               <div className="grid w-full grid-cols-2 gap-2 mb-6 text-sm font-medium">
-                <div className="px-3 py-6 transition border border-gray-300 bg-gray-50 rounded-xl dark:bg-black dark:border-gray-800">
+                <div className="px-3 py-6 transition border border-gray-300 bg-gray-50 rounded-xl dark:bg-gray-900 dark:border-gray-800">
                   Solidity
                 </div>
-                <div className="px-3 py-6 transition border border-gray-300 bg-gray-50 rounded-xl dark:bg-black dark:border-gray-800">
+                <div className="px-3 py-6 transition border border-gray-300 bg-gray-50 rounded-xl dark:bg-gray-900 dark:border-gray-800">
                   JavaScript/TypeScript
                 </div>
-                <div className="px-3 py-6 transition border border-gray-300 bg-gray-50 rounded-xl dark:bg-black dark:border-gray-800">
+                <div className="px-3 py-6 transition border border-gray-300 bg-gray-50 rounded-xl dark:bg-gray-900 dark:border-gray-800">
                   React/Next.js
                 </div>
-                <div className="px-3 py-6 transition border border-gray-300 bg-gray-50 rounded-xl dark:bg-black dark:border-gray-800">
+                <div className="px-3 py-6 transition border border-gray-300 bg-gray-50 rounded-xl dark:bg-gray-900 dark:border-gray-800">
                   Tailwind CSS
                 </div>
-                <div className="px-3 py-6 transition border border-gray-300 bg-gray-50 rounded-xl dark:bg-black dark:border-gray-800">
+                <div className="px-3 py-6 transition border border-gray-300 bg-gray-50 rounded-xl dark:bg-gray-900 dark:border-gray-800">
                   Node.js
                 </div>
-                <div className="px-3 py-6 transition border border-gray-300 bg-gray-50 rounded-xl dark:bg-black dark:border-gray-800">
+                <div className="px-3 py-6 transition border border-gray-300 bg-gray-50 rounded-xl dark:bg-gray-900 dark:border-gray-800">
                   Python
                 </div>
               </div>
@@ -71,7 +71,7 @@ const Home = () => {
                   <li
                     className={
                       selected === 'projects'
-                        ? 'px-4 py-1 text-sm font-semibold text-white bg-gray-700 transition rounded-full cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-gray-300 hover:text-gray-500 dark:text-gray-800'
+                        ? 'px-4 py-1 text-sm font-semibold text-white bg-gray-700 transition rounded-full cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-gray-300 hover:text-gray-500 dark:text-gray-800 hover:dark:text-gray-300'
                         : 'px-4 py-1 text-sm font-semibold text-gray-500 transition rounded-full cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-black dark:text-gray-300'
                     }
                     onClick={() => setSelected('projects')}
@@ -81,7 +81,7 @@ const Home = () => {
                   <li
                     className={
                       selected === 'activity'
-                        ? 'px-4 py-1 text-sm font-semibold text-white bg-gray-700 transition rounded-full cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-gray-300 hover:text-gray-500 dark:text-gray-800'
+                        ? 'px-4 py-1 text-sm font-semibold text-white bg-gray-700 transition rounded-full cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-gray-300 hover:text-gray-500 dark:text-gray-800 hover:dark:text-gray-300'
                         : 'px-4 py-1 text-sm font-semibold text-gray-500 transition rounded-full cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-black dark:text-gray-300'
                     }
                     onClick={() => (setSelected('activity'), getFeed())}
@@ -91,7 +91,7 @@ const Home = () => {
                   <li
                     className={
                       selected === 'info'
-                        ? 'px-4 py-1 text-sm font-semibold text-white bg-gray-700 transition rounded-full cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-gray-300 hover:text-gray-500 dark:text-gray-800'
+                        ? 'px-4 py-1 text-sm font-semibold text-white bg-gray-700 transition rounded-full cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-gray-300 hover:text-gray-500 dark:text-gray-800 hover:dark:text-gray-300'
                         : 'px-4 py-1 text-sm font-semibold text-gray-500 transition rounded-full cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-black dark:text-gray-300'
                     }
                     onClick={() => setSelected('info')}
@@ -195,7 +195,7 @@ const Home = () => {
                     <div className="flex items-center justify-between mb-3 transition">
                       <div className="text-gray-500">Contract Address</div>
                       <a
-                        className="flex items-center gap-2 text-purple-800"
+                        className="flex items-center gap-2 text-indigo-800"
                         href="https://rinkeby.etherscan.io/address/0x4f4f87E9AD124Da45b34863067DDb1EDd8eCF48c"
                         target="_blank"
                         rel="noreferrer"

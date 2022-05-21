@@ -23,12 +23,12 @@ export const Navbar = () => {
   }
 
   return (
-    <nav className="flex items-center justify-between w-full max-w-4xl px-4 mx-auto my-20 z-99">
+    <nav className="flex items-center justify-between w-full max-w-4xl pr-4 mx-auto my-20 z-99">
       <div className="flex text-xl">
         <a
           href={TWITTER_URL}
           target="_blank"
-          className="px-4 py-2.5 cursor-pointer"
+          className="px-4 py-2.5 cursor-pointer hover:text-indigo-800"
           rel="noreferrer"
         >
           <FiTwitter />
@@ -36,12 +36,12 @@ export const Navbar = () => {
         <a
           href={GITHUB_URL}
           target="_blank"
-          className="px-4 py-2.5 cursor-pointer"
+          className="px-4 py-2.5 cursor-pointer hover:text-indigo-800"
           rel="noreferrer"
         >
           <FiGithub />
         </a>
-        <a onClick={() => copyEmail()} className="px-4 py-2.5 cursor-pointer">
+        <a onClick={() => copyEmail()} className="px-4 py-2.5 cursor-pointer hover:text-indigo-800">
           <FiMail />
         </a>
       </div>

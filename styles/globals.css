@@ -14,7 +14,7 @@
     @apply flex items-center justify-start py-2 border-b border-gray-300;
   }
   .gha-activity .gha-message {
-    @apply w-full;
+    @apply w-full transition;
   }
 
   .gha-activity .octicon {
@@ -30,7 +30,7 @@
   }
 
   .gha-activity a {
-    @apply font-semibold hover:text-purple-800;
+    @apply font-semibold hover:text-indigo-800;
   }
 
   .gha-activity ul > li {
