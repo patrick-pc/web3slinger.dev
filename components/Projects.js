@@ -1,13 +1,14 @@
+import { ProjectData } from '../data/projects'
 import { GiSwordwoman, GiDiamondsSmile, GiHammerNails, GiSpiderWeb } from 'react-icons/gi'
 import { FiExternalLink } from 'react-icons/fi'
 
-export const ProjectCard = ({ title, description, href, icon }) => {
+const ProjectCard = ({ title, description, href, icon }) => {
   return (
     <a
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="flex flex-col sm:flex-row text-center sm:text-left px-8 sm:px-6 py-6 rounded-md border border-gray-300 dark:border-gray-800 max-w-2xl cursor-pointer focus:outline-none transition duration-300 ease-in-out transform hover:scale-102.5"
+      className="flex flex-col sm:flex-row text-center sm:text-left px-8 sm:px-6 py-6 border border-gray-300 rounded-md dark:border-gray-800 max-w-2xl cursor-pointer focus:outline-none transition duration-300 ease-in-out transform hover:scale-102.5"
     >
       <div className="flex items-center justify-center w-full mb-4 mr-6 text-4xl sm:w-1/12 sm:mb-0">
         {icon === 'sword-woman' ? <GiSwordwoman /> : null}
@@ -23,5 +24,15 @@ export const ProjectCard = ({ title, description, href, icon }) => {
         <div className="text-sm text-gray-600 dark:text-gray-300">{description}</div>
       </div>
     </a>
+  )
+}
+
+export const Projects = () => {
+  return (
+    <div className="grid gap-6">
+      {ProjectData.map((project, index) => (
+        <ProjectCard key={index} {...project} />
+      ))}
+    </div>
   )
 }

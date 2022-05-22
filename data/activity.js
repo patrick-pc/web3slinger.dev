@@ -9,14 +9,14 @@
 import Mustache from 'mustache'
 import XMLHttpRequest from 'xhr2'
 
-export var GitHubActivity = (function () {
+export const GitHubActivity = (function () {
   'use strict'
 
-  var obj = {}
+  const obj = {}
 
-  var config = {}
+  let config = {}
 
-  var methods = {
+  const methods = {
     renderLink: function (url, title, cssClass) {
       if (!title) {
         title = url
@@ -35,7 +35,7 @@ export var GitHubActivity = (function () {
       return methods.renderLink('https://github.com/' + url, title, cssClass)
     },
     getMessageFor: function (data) {
-      var p = data.payload
+      const p = data.payload
       data.repoLink = methods.renderGitHubLink(data.repo.name)
       data.userGravatar = Mustache.render(
         '<div class="gha-gravatar-user"><img src="{{url}}" class="gha-gravatar-small"></div>',
@@ -55,8 +55,8 @@ export var GitHubActivity = (function () {
 
       // Only show the first 6 characters of the SHA of each commit if given.
       if (p.commits) {
-        var shaDiff = p.before + '...' + p.head
-        var length = p.commits.length
+        const shaDiff = p.before + '...' + p.head
+        const length = p.commits.length
         if (length === 2) {
           // If there are 2 commits, show message 'View comparison for these 2 commits >>'
           data.commitsMessage = Mustache.render(
@@ -97,7 +97,7 @@ export var GitHubActivity = (function () {
 
       // Get the link if this is an IssueEvent.
       if (p.issue) {
-        var title = data.repo.name + '#' + p.issue.number
+        const title = data.repo.name + '#' + p.issue.number
         data.issueLink = methods.renderLink(p.issue.html_url, title)
         data.issueType = 'issue'
         if (p.issue.pull_request) {
@@ -107,14 +107,14 @@ export var GitHubActivity = (function () {
 
       // Retrieve the pull request link if this is a PullRequestEvent.
       if (p.pull_request) {
-        var pr = p.pull_request
+        const pr = p.pull_request
         data.pullRequestLink = methods.renderLink(pr.html_url, data.repo.name + '#' + pr.number)
         data.mergeMessage = ''
 
         // If this was a merge, set the merge message.
         if (p.pull_request.merged) {
           data.eventType = 'merged'
-          var message =
+          const message =
             '{{c}} ' +
             pluralize('commit', pr.commits) +
             ' with {{a}} ' +
@@ -142,7 +142,7 @@ export var GitHubActivity = (function () {
 
       // Get the link if this is a PullRequestReviewCommentEvent
       if (p.comment && p.comment.pull_request_url) {
-        var title = data.repo.name + '#' + p.comment.pull_request_url.split('/').pop()
+        const title = data.repo.name + '#' + p.comment.pull_request_url.split('/').pop()
         data.pullRequestLink = methods.renderLink(p.comment.html_url, title)
       }
 
@@ -153,7 +153,7 @@ export var GitHubActivity = (function () {
           data.comment = data.comment.substring(0, 150) + '...'
         }
         if (p.comment.html_url && p.comment.commit_id) {
-          var title = data.repo.name + '@' + p.comment.commit_id.substring(0, 10)
+          const title = data.repo.name + '@' + p.comment.commit_id.substring(0, 10)
           data.commentLink = methods.renderLink(p.comment.html_url, title)
         }
       }
@@ -165,7 +165,7 @@ export var GitHubActivity = (function () {
 
       // Wiki event
       if (data.type === 'GollumEvent') {
-        var page = p.pages[0]
+        const page = p.pages[0]
         data.actionType = page.action
         data.message = data.actionType.charAt(0).toUpperCase() + data.actionType.slice(1) + ' '
         data.message += methods.renderGitHubLink(page.html_url, page.title)
@@ -180,9 +180,9 @@ export var GitHubActivity = (function () {
         data.gistLink = methods.renderLink(p.gist.html_url, 'gist: ' + p.gist.id)
       }
 
-      var message = Mustache.render(templates[data.type], data)
-      var timeString = millisecondsToStr(new Date() - new Date(data.created_at))
-      var icon
+      const message = Mustache.render(templates[data.type], data)
+      const timeString = millisecondsToStr(new Date() - new Date(data.created_at))
+      let icon
 
       if (data.type == 'CreateEvent' && ['repository', 'branch', 'tag'].indexOf(p.ref_type) >= 0) {
         // Display separate icons depending on type of create event.
@@ -192,7 +192,7 @@ export var GitHubActivity = (function () {
       } else {
         icon = icons[data.type]
       }
-      var activity = {
+      const activity = {
         message: message,
         icon: icon,
         timeString: timeString,
@@ -215,8 +215,8 @@ export var GitHubActivity = (function () {
       return Mustache.render(templates.UserHeader, data)
     },
     getActivityHTML: function (data, limit) {
-      var text = ''
-      var dataLength = data.length
+      let text = ''
+      const dataLength = data.length
       if (limit && limit > dataLength) {
         limit = dataLength
       }
@@ -225,14 +225,14 @@ export var GitHubActivity = (function () {
       if (limit === 0) {
         return Mustache.render(templates.NoActivity, {})
       }
-      for (var i = 0; i < limit; i++) {
+      for (let i = 0; i < limit; i++) {
         text += methods.getMessageFor(data[i])
       }
 
       return text
     },
     getOutputFromRequest: function (url, callback) {
-      var request = new XMLHttpRequest()
+      const request = new XMLHttpRequest()
       request.open('GET', url)
       request.setRequestHeader('Accept', 'application/vnd.github.v3+json')
       if (
@@ -250,7 +250,7 @@ export var GitHubActivity = (function () {
       request.onreadystatechange = function () {
         if (request.readyState === 4) {
           if (request.status >= 200 && request.status < 300) {
-            var data = JSON.parse(request.responseText)
+            const data = JSON.parse(request.responseText)
             callback(undefined, data)
           } else {
             callback('request for ' + url + ' yielded status ' + request.status)
@@ -268,12 +268,12 @@ export var GitHubActivity = (function () {
       div.style.position = 'relative'
     },
     writeOutput: function (selector, content) {
-      var div =
+      const div =
         selector.charAt(0) === '#'
           ? document.getElementById(selector.substring(1))
           : document.getElementsByclass(selector.substring(1))
       if (div instanceof HTMLCollection) {
-        for (var i = 0; i < div.length; i++) {
+        for (let i = 0; i < div.length; i++) {
           methods.renderStream(content, div[i])
         }
       } else {
@@ -294,11 +294,11 @@ export var GitHubActivity = (function () {
       return false
     }
 
-    var selector = options.selector,
-      userUrl = 'https://api.github.com/users/' + options.username,
-      eventsUrl = userUrl + '/events',
-      header,
-      activity
+    const selector = options.selector
+    const userUrl = 'https://api.github.com/users/' + options.username
+    let eventsUrl = userUrl + '/events'
+    let header
+    let activity
 
     if (!!options.repository) {
       eventsUrl =
@@ -311,7 +311,7 @@ export var GitHubActivity = (function () {
 
     // Allow templates override
     if (typeof options.templates == 'object') {
-      for (var template in templates) {
+      for (const template in templates) {
         if (typeof options.templates[template] == 'string') {
           templates[template] = options.templates[template]
         }
@@ -331,7 +331,7 @@ export var GitHubActivity = (function () {
       if (error) {
         activity = Mustache.render(templates.EventsNotFound, { username: options.username })
       } else {
-        var limit = options.limit != 'undefined' ? parseInt(options.limit, 10) : null
+        const limit = options.limit != 'undefined' ? parseInt(options.limit, 10) : null
         activity = methods.getActivityHTML(output, limit)
       }
       methods.renderIfReady(selector, header, activity)
@@ -349,24 +349,24 @@ function millisecondsToStr(milliseconds) {
   function numberEnding(number) {
     return number > 1 ? 's ago' : ' ago'
   }
-  var temp = Math.floor(milliseconds / 1000)
+  let temp = Math.floor(milliseconds / 1000)
 
-  var years = Math.floor(temp / 31536000)
+  const years = Math.floor(temp / 31536000)
   if (years) return years + ' year' + numberEnding(years)
 
-  var months = Math.floor((temp %= 31536000) / 2592000)
+  const months = Math.floor((temp %= 31536000) / 2592000)
   if (months) return months + ' month' + numberEnding(months)
 
-  var days = Math.floor((temp %= 2592000) / 86400)
+  const days = Math.floor((temp %= 2592000) / 86400)
   if (days) return days + ' day' + numberEnding(days)
 
-  var hours = Math.floor((temp %= 86400) / 3600)
+  const hours = Math.floor((temp %= 86400) / 3600)
   if (hours) return 'about ' + hours + ' hour' + numberEnding(hours)
 
-  var minutes = Math.floor((temp %= 3600) / 60)
+  const minutes = Math.floor((temp %= 3600) / 60)
   if (minutes) return minutes + ' minute' + numberEnding(minutes)
 
-  var seconds = temp % 60
+  const seconds = temp % 60
   if (seconds) return seconds + ' second' + numberEnding(seconds)
 
   return 'just now'
@@ -382,7 +382,7 @@ function pluralize(word, number) {
 
 /** MD5 methods written by Joseph Myers. http://www.myersdaily.org/joseph/javascript/md5-text.html */
 function md5cycle(f, h) {
-  var g = f[0],
+  let g = f[0],
     e = f[1],
     j = f[2],
     i = f[3]
@@ -472,15 +472,15 @@ function ii(g, f, k, j, e, i, h) {
   return cmn(k ^ (f | ~j), g, f, e, i, h)
 }
 function md51(c) {
-  var txt = ''
-  var e = c.length,
-    d = [1732584193, -271733879, -1732584194, 271733878],
-    b
+  const txt = ''
+  const e = c.length
+  const d = [1732584193, -271733879, -1732584194, 271733878]
+  let b
   for (b = 64; b <= c.length; b += 64) {
     md5cycle(d, md5blk(c.substring(b - 64, b)))
   }
   c = c.substring(b - 64)
-  var a = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  const a = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   for (b = 0; b < c.length; b++) {
     a[b >> 2] |= c.charCodeAt(b) << (b % 4 << 3)
   }
@@ -496,8 +496,8 @@ function md51(c) {
   return d
 }
 function md5blk(b) {
-  var c = [],
-    a
+  const c = []
+  let a
   for (a = 0; a < 64; a += 4) {
     c[a >> 2] =
       b.charCodeAt(a) +
@@ -507,9 +507,9 @@ function md5blk(b) {
   }
   return c
 }
-var hex_chr = '0123456789abcdef'.split('')
+const hex_chr = '0123456789abcdef'.split('')
 function rhex(c) {
-  var b = '',
+  let b = '',
     a = 0
   for (; a < 4; a++) {
     b += hex_chr[(c >> (a * 8 + 4)) & 15] + hex_chr[(c >> (a * 8)) & 15]
@@ -517,7 +517,7 @@ function rhex(c) {
   return b
 }
 function hex(a) {
-  for (var b = 0; b < a.length; b++) {
+  for (let b = 0; b < a.length; b++) {
     a[b] = rhex(a[b])
   }
   return a.join('')
@@ -530,15 +530,14 @@ function add32(d, c) {
 }
 if (md5('hello') != '5d41402abc4b2a76b9719d911017c592') {
   function add32(a, d) {
-    var c = (a & 65535) + (d & 65535),
+    const c = (a & 65535) + (d & 65535),
       b = (a >> 16) + (d >> 16) + (c >> 16)
     return (b << 16) | (c & 65535)
   }
 }
 
-var templates = {
-    Stream:
-      '<div class="gha-feed">{{{text}}}<div class="gha-push-small"></div>{{{footer}}}</div>',
+const templates = {
+    Stream: '<div class="gha-feed">{{{text}}}<div class="gha-push-small"></div>{{{footer}}}</div>',
     Activity:
       '<div id="{{id}}" class="gha-activity">\
                <div class="gha-activity-icon"><span class="octicon mega-octicon octicon-{{icon}}"></span></div>\
@@ -551,12 +550,9 @@ var templates = {
                          <div class="gha-message"><div class="gha-time">{{{timeString}}}</div>{{{message}}}</div>\
                          <div class="gha-clear"></div>\
                        </div>',
-    UserHeader:
-      '<div class="gha-header"></div>',
-    Footer:
-      '<div class="gha-footer"></div>',
-    NoActivity:
-      '<div class="gha-info">This user does not have any recent public activity.</div>',
+    UserHeader: '<div class="gha-header"></div>',
+    Footer: '<div class="gha-footer"></div>',
+    NoActivity: '<div class="gha-info">This user does not have any recent public activity.</div>',
     UserNotFound: '<div class="gha-info">User {{username}} wasn\'t found.</div>',
     EventsNotFound: '<div class="gha-info">Events for user {{username}} not found.</div>',
     CommitCommentEvent:
