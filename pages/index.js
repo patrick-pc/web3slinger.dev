@@ -10,6 +10,8 @@ import { GenericMeta } from '../components/GenericMeta'
 import { Navbar } from '../components/Navbar'
 import { GitHubActivity } from '../data/github-activity'
 
+import { Projects } from '../components/Projects'
+
 const Home = () => {
   const [mintCount] = useMintCountContext()
   const [selected, setSelected] = useState('projects')
@@ -99,94 +101,7 @@ const Home = () => {
                     Info
                   </li>
                 </ul>
-                {selected === 'projects' ? (
-                  <div className="grid gap-6">
-                    <a
-                      className="flex flex-col sm:flex-row text-center sm:text-left px-8 sm:px-6 py-6 rounded-md border border-gray-300 dark:border-gray-800 max-w-2xl cursor-pointer focus:outline-none transition duration-300 ease-in-out transform hover:scale-102.5"
-                      href="https://web3slinger-metaverse-slayer.vercel.app/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <div className="flex items-center justify-center w-full mb-4 mr-6 text-4xl sm:w-1/12 sm:mb-0">
-                        <div>
-                          <GiSwordwoman />
-                        </div>
-                      </div>
-                      <div className="flex flex-col items-center w-full sm:items-start sm:w-11/12">
-                        <div className="flex items-center gap-2">
-                          <div className="font-semibold">Metaverse Slayer</div>
-                          <FiExternalLink />
-                        </div>
-                        <div className="text-sm text-gray-600 dark:text-gray-300">
-                          Turn-based NFT browser game.
-                        </div>
-                      </div>
-                    </a>
-                    <a
-                      className="flex flex-col sm:flex-row text-center sm:text-left px-8 sm:px-6 py-6 rounded-md border border-gray-300 dark:border-gray-800 max-w-2xl cursor-pointer focus:outline-none transition duration-300 ease-in-out transform hover:scale-102.5"
-                      href="https://web3slinger-epic-nfts.vercel.app/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <div className="flex items-center justify-center w-full mb-4 mr-6 text-4xl sm:w-1/12 sm:mb-0">
-                        <div>
-                          <GiDiamondsSmile />
-                        </div>
-                      </div>
-                      <div className="flex flex-col items-center w-full sm:items-start sm:w-11/12">
-                        <div className="flex items-center gap-2">
-                          <div className="font-semibold">Epic NFTs</div>
-                          <FiExternalLink />
-                        </div>
-                        <div className="text-sm text-gray-600 dark:text-gray-300">
-                          3 word epic NFTs that makes you laugh.
-                        </div>
-                      </div>
-                    </a>
-                    <a
-                      className="flex flex-col sm:flex-row text-center sm:text-left px-8 sm:px-6 py-6 rounded-md border border-gray-300 dark:border-gray-800 max-w-2xl cursor-pointer focus:outline-none transition duration-300 ease-in-out transform hover:scale-102.5"
-                      href="https://daedalus-dao.vercel.app/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <div className="flex items-center justify-center w-full mb-4 mr-6 text-4xl sm:w-1/12 sm:mb-0">
-                        <div>
-                          <GiHammerNails />
-                        </div>
-                      </div>
-                      <div className="flex flex-col items-center w-full sm:items-start sm:w-11/12">
-                        <div className="flex items-center gap-2">
-                          <div className="font-semibold">Daedalus DAO</div>
-                          <FiExternalLink />
-                        </div>
-                        <div className="text-sm text-gray-600 dark:text-gray-300">
-                          Community for builders using thirdweb.
-                        </div>
-                      </div>
-                    </a>
-                    <a
-                      className="flex flex-col sm:flex-row text-center sm:text-left px-8 sm:px-6 py-6 rounded-md border border-gray-300 dark:border-gray-800 max-w-2xl cursor-pointer focus:outline-none transition duration-300 ease-in-out transform hover:scale-102.5"
-                      href="https://github.com/web3slinger/web3slinger.dev"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <div className="flex items-center justify-center w-full mb-4 mr-6 text-4xl sm:w-1/12 sm:mb-0">
-                        <div>
-                          <GiSpiderWeb />
-                        </div>
-                      </div>
-                      <div className="flex flex-col items-center w-full sm:items-start sm:w-11/12">
-                        <div className="flex items-center gap-2">
-                          <div className="font-semibold">web3slinger.dev</div>
-                          <FiExternalLink />
-                        </div>
-                        <div className="text-sm text-gray-600 dark:text-gray-300">
-                          The website you're currently on! Made with Next.js and Tailwind CSS.
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                ) : null}
+                {selected === 'projects' ? <Projects /> : null}
 
                 <div id="gh-feed" className={selected !== 'activity' ? 'hidden' : 'relative'}></div>
 
