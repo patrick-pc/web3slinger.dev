@@ -2,38 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  /*
-   * GitHub Activity Feed
-   */
-  .gha-feed {
-    @apply flex flex-col text-sm;
-  }
+/* GitHub Activity Feed */
+.gha-feed {
+  @apply flex flex-col text-sm;
+}
 
-  .gha-activity {
-    @apply flex items-center justify-start py-2 border-b border-gray-300;
-  }
-  .gha-activity .gha-message {
-    @apply w-full transition;
-  }
+.gha-activity {
+  @apply flex items-center justify-start py-2 transition border-b border-gray-300;
+}
+.gha-activity .gha-message {
+  @apply w-full;
+}
 
-  .gha-activity .octicon {
-    @apply w-8 text-xl;
-  }
+.gha-activity .octicon {
+  @apply w-8 text-xl;
+}
 
-  .gha-activity .gha-time {
-    @apply text-xs text-gray-500;
-  }
+.gha-activity .gha-time {
+  @apply text-xs text-gray-500;
+}
 
-  .gha-activity .gha-gravatar-commit {
-    @apply inline rounded-full;
-  }
+.gha-activity .gha-gravatar-commit {
+  @apply inline rounded-full;
+}
 
-  .gha-activity a {
-    @apply font-semibold hover:text-indigo-800;
-  }
+.gha-activity a {
+  @apply font-semibold hover:text-indigo-800;
+}
 
-  .gha-activity ul > li {
-    @apply flex items-center justify-start;
-  }
+.gha-activity ul > li {
+  @apply flex items-center justify-start;
 }

@@ -1,29 +1,18 @@
 import { useEffect, useState } from 'react'
 import { useMintCountContext } from '../context/ContextProvider'
 import { FiExternalLink } from 'react-icons/fi'
-import { GiSwordwoman, GiDiamondsSmile, GiHammerNails, GiSpiderWeb } from 'react-icons/gi'
 import FadeIn from 'react-fade-in'
 import Router from 'next/router'
 import Image from 'next/image'
 
 import { GenericMeta } from '../components/GenericMeta'
 import { Navbar } from '../components/Navbar'
-import { GitHubActivity } from '../data/github-activity'
-
 import { Projects } from '../components/Projects'
+import { GitHubActivityFeed } from '../components/GitHubActivityFeed'
 
 const Home = () => {
   const [mintCount] = useMintCountContext()
   const [selected, setSelected] = useState('projects')
-
-  const getFeed = () => {
-    console.log('getFeed')
-    GitHubActivity.feed({ username: 'web3slinger', limit: 10, selector: '#gh-feed' })
-  }
-
-  const test = () => {
-    console.log('test')
-  }
 
   useEffect(() => {
     if (mintCount === 0) {
@@ -86,7 +75,7 @@ const Home = () => {
                         ? 'px-4 py-1 text-sm font-semibold text-white bg-gray-700 transition rounded-full cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-gray-300 hover:text-gray-500 dark:text-gray-800 hover:dark:text-gray-300'
                         : 'px-4 py-1 text-sm font-semibold text-gray-500 transition rounded-full cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-black dark:text-gray-300'
                     }
-                    onClick={() => (setSelected('activity'), getFeed())}
+                    onClick={() => setSelected('activity')}
                   >
                     Activity
                   </li>
@@ -102,8 +91,7 @@ const Home = () => {
                   </li>
                 </ul>
                 {selected === 'projects' ? <Projects /> : null}
-
-                <div id="gh-feed" className={selected !== 'activity' ? 'hidden' : 'relative'}></div>
+                {selected === 'activity' ? <GitHubActivityFeed /> : null}
 
                 {selected === 'info' ? (
                   <div className="text-sm">
