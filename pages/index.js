@@ -7,8 +7,8 @@ import Router from 'next/router'
 import Image from 'next/image'
 
 import { GenericMeta } from '../components/GenericMeta'
-import { Navbar } from '../components/Nav/Navbar'
-import { GitHubActivity } from './data/github-activity'
+import { Navbar } from '../components/Navbar'
+import { GitHubActivity } from '../data/github-activity'
 
 const Home = () => {
   const [mintCount] = useMintCountContext()
