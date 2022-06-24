@@ -1,4 +1,3 @@
-
 export const ProjectData = [
   {
     title: 'Metaverse Slayer',
@@ -21,7 +20,7 @@ export const ProjectData = [
   {
     title: 'web3slinger.dev',
     description: "The website you're currently on! Made with Next.js and Tailwind CSS.",
-    href: 'https://github.com/ven/huecord',
+    href: 'https://github.com/web3slinger',
     icon: 'spider-web',
   },
 ]
