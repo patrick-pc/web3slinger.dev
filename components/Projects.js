@@ -1,5 +1,6 @@
 import { ProjectData } from '../data/projects'
-import { GiSwordwoman, GiDiamondsSmile, GiHammerNails, GiSpiderWeb } from 'react-icons/gi'
+import { BiDonateHeart } from 'react-icons/bi'
+import { GiSpiderWeb } from 'react-icons/gi'
 import { FiExternalLink } from 'react-icons/fi'
 
 const ProjectCard = ({ title, description, href, icon }) => {
@@ -11,9 +12,7 @@ const ProjectCard = ({ title, description, href, icon }) => {
       className="flex flex-col sm:flex-row text-center sm:text-left px-8 sm:px-6 py-6 border border-gray-300 rounded-md dark:border-gray-800 max-w-2xl cursor-pointer focus:outline-none transition duration-300 ease-in-out transform hover:scale-102.5"
     >
       <div className="flex items-center justify-center w-full mb-4 mr-6 text-4xl sm:w-1/12 sm:mb-0">
-        {icon === 'sword-woman' ? <GiSwordwoman /> : null}
-        {icon === 'diamond-smile' ? <GiDiamondsSmile /> : null}
-        {icon === 'hammer-nails' ? <GiHammerNails /> : null}
+        {icon === 'donate-heart' ? <BiDonateHeart /> : null}
         {icon === 'spider-web' ? <GiSpiderWeb /> : null}
       </div>
       <div className="flex flex-col items-center w-full sm:items-start sm:w-11/12">
