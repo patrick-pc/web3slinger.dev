@@ -58,16 +58,25 @@ const Home = () => {
           <div className="flex flex-col px-4 mx-auto mb-20 overflow-hidden lg:flex-row">
             <div className="flex flex-col shrink-0 lg:w-96">
               <div className="mb-6">
-                <Image src="/img/smol-spider.png" alt="Smol Spider-Man" width={600} height={600} />
+                <Image
+                  className="rounded-xl"
+                  src="/img/smol-spider.png"
+                  alt="Smol Spider-Man"
+                  width={600}
+                  height={600}
+                />
               </div>
-              <div className="grid w-full grid-cols-2 gap-2 mb-6 text-sm font-medium">
+              <div className="grid w-full grid-cols-2 gap-4 mb-6 text-sm font-medium">
                 <Skills />
               </div>
             </div>
             <div className="flex flex-col lg:ml-6">
               <div className="flex flex-col mb-6 transition">
                 <h1 className="mb-2 text-4xl font-bold">{SocialData.NAME}</h1>
-                <p className="text-2xl font-medium text-gray-500">{SocialData.TITLE}</p>
+                <p className="text-lg text-gray-600">
+                  25-year-old <span className="font-medium">{SocialData.TITLE}</span> from
+                  Rochester, Minnesota.
+                </p>
               </div>
               <div className="flex flex-col w-full mb-6">
                 <ul className="flex gap-2 mb-6">
