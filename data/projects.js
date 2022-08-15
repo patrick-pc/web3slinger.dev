@@ -12,6 +12,12 @@ export const ProjectData = [
     icon: 'donate-heart',
   },
   {
+    title: 'NFT Floor Diff',
+    description: 'NFT marketplace floor price difference aggregator.',
+    href: 'https://nftfloordiff.com',
+    icon: 'layer-group',
+  },
+  {
     title: 'web3slinger.dev',
     description: "The website you're currently on! Made with Next.js and Tailwind CSS.",
     href: 'https://github.com/web3slinger/web3slinger.dev',

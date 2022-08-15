@@ -54,8 +54,8 @@ const Home = () => {
 
       <FadeIn>
         <Navbar />
-        <div className="flex justify-between w-full h-full">
-          <div className="flex flex-col px-4 mx-auto mb-20 overflow-hidden lg:flex-row">
+        <div className="flex flex-col justify-between w-full h-full">
+          <div className="flex flex-col px-4 mx-auto mb-20 overflow-hidden lg:flex-row gap-16">
             <div className="flex flex-col shrink-0 lg:w-96">
               <div className="mb-6">
                 <Image
@@ -70,11 +70,11 @@ const Home = () => {
                 <Skills />
               </div>
             </div>
-            <div className="flex flex-col lg:ml-6">
+            <div className="flex flex-col">
               <div className="flex flex-col mb-6 transition">
                 <h1 className="mb-2 text-4xl font-bold">{SocialData.NAME}</h1>
                 <p className="text-lg text-gray-600">
-                  25-year-old <span className="font-medium">{SocialData.TITLE}</span> from
+                  25-year-old <span className="font-semibold">{SocialData.TITLE}</span> from
                   Rochester, Minnesota.
                 </p>
               </div>
