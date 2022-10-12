@@ -42,11 +42,11 @@ const Home = () => {
     }
   }
 
-  useEffect(() => {
-    if (mintCount === 0) {
-      Router.push('/mint')
-    }
-  })
+  // useEffect(() => {
+  //   if (mintCount === 0) {
+  //     Router.push('/mint')
+  //   }
+  // })
 
   return (
     <>
@@ -78,7 +78,7 @@ const Home = () => {
                   Rochester, Minnesota.
                 </p>
               </div>
-              <div className="flex flex-col w-full mb-6">
+              <div className="flex flex-col w-full lg:w-[500px] mb-6">
                 <ul className="flex gap-2 mb-6">
                   <ListItem item="Projects" />
                   <ListItem item="Activity" />

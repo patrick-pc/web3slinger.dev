@@ -4,5 +4,5 @@ export const SkillData = [
   'React/Next.js',
   'Tailwind CSS',
   'Node.js',
-  'Python',
+  'SQL',
 ]

@@ -14,6 +14,12 @@ class AppDocument extends Document {
             href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css"
             rel="stylesheet"
           />
+
+          <link rel="icon" type="image/png" href="/favicon.ico" />
+          <meta
+            name="description"
+            content="Patrick Torralba - Software Developer from Rochester, Minnesota"
+          />
           <meta property="og:url" content="https://web3slinger.dev" />
           <meta property="og:site_name" content="web3slinger.dev" />
           <meta property="og:image" content="/img/smol-spider.png" />

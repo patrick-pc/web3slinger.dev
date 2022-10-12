@@ -1,6 +1,8 @@
 import { ProjectData } from '../data/projects'
 import { GiDinosaurRex, GiPayMoney, GiSpiderMask } from 'react-icons/gi'
 import { RiCheckboxMultipleBlankFill } from 'react-icons/ri'
+import { TiTicket } from 'react-icons/ti'
+import { CgComponents } from 'react-icons/cg'
 import { FiExternalLink } from 'react-icons/fi'
 
 const ProjectCard = ({ title, description, href, icon }) => {
@@ -15,6 +17,8 @@ const ProjectCard = ({ title, description, href, icon }) => {
         {icon === 'dino-rex' ? <GiDinosaurRex /> : null}
         {icon === 'donate-heart' ? <GiPayMoney /> : null}
         {icon === 'layer-group' ? <RiCheckboxMultipleBlankFill /> : null}
+        {icon === 'ticket' ? <TiTicket /> : null}
+        {icon === 'components' ? <CgComponents /> : null}
         {icon === 'spider-web' ? <GiSpiderMask /> : null}
       </div>
       <div className="flex flex-col items-center w-full sm:items-start sm:w-11/12">
