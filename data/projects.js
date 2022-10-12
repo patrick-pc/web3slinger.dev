@@ -20,7 +20,8 @@ export const ProjectData = [
   },
   {
     title: 'EthpassKit',
-    description: 'A React component library for generating mobile NFT passes using ethpass API.',
+    description:
+      'A React component library for generating mobile NFT passes to use with ethpass API.',
     href: 'https://ethpasskit.vercel.app/',
     icon: 'components',
   },
