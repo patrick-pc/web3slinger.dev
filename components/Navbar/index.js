@@ -42,17 +42,7 @@ export const Navbar = () => {
           <FiMail />
         </a>
       </div>
-      <div className="flex items-center justify-center ml-auto gap-4">
-        <a
-          className="flex items-center justify-center border border-gray-300 dark:border-gray-800 rounded-lg text-xs cursor-pointer focus:outline-none transition duration-100 ease-in-out transform hover:bg-gray-50 dark:hover:bg-[#131517] px-3 h-8"
-          href="https://web3slinger.dev/resume.pdf"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Resume
-        </a>
-        <ThemeSwitcher />
-      </div>
+      <ThemeSwitcher />
     </nav>
   )
 }
